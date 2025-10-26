@@ -5,7 +5,7 @@ let imagebtn=document.querySelector("#image")
 let image=document.querySelector("#image img")
 let imageinput=document.querySelector("#image input")
 
-const Api_Url="https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyDi9ViU0yG36w8JZZs8fd4bMxuVS33R0vo"
+const Api_Url="https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyB7iPXPFc-6zLu_RXguqShOiSZMhRzcJeI"
 let user={
     message:null,
     file:{
@@ -36,6 +36,8 @@ let RequestOption={
 try{
     let response= await fetch(Api_Url,RequestOption)
     let data=await response.json()
+    // console.log(response);
+    
     let apiResponse=data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g,"$1").trim()
     text.innerHTML=apiResponse
    
